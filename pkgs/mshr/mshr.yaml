@@ -1,7 +1,8 @@
 extends: [cmake_package]
 
 dependencies:
-  build: [pkg-config, python, boost, dolfin, gmp, mpfr, mpi, swig, {{build_with}}]
+  # FIXME: Find a better way than including petsc and slepc here
+  build: [pkg-config, python, boost, dolfin, gmp, mpfr, mpi, swig, petsc, slepc, {{build_with}}]
 
 sources:
 - key: tar.gz:m4wkxp4w33t52pfgia6g2sywrprdxl3k
@@ -24,3 +25,11 @@ build_stages:
   extra: ['-D BUILD_SHARED_LIBS:BOOL=ON',
           '-D BOOST_ROOT:PATH="${BOOST_DIR}"',
           '-D CMAKE_MACOSX_RPATH:BOOL=ON']
+
+- when: platform == 'Darwin'
+  name: fix-rpath
+  after: install
+  handler: bash
+  bash: |
+    install_name_tool -add_rpath ${BOOST_DIR}/lib ${ARTIFACT}/lib/python{{pyver}}/site-packages/_mshr.so
+    install_name_tool -add_rpath ${VTK_DIR}/lib ${ARTIFACT}/lib/python{{pyver}}/site-packages/_mshr.so

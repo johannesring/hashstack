@@ -37,7 +37,8 @@ def configure(ctx, stage_args):
                   '-D EIGEN3_INCLUDE_DIR:PATH="${EIGEN_DIR}/include/eigen3"',
                   '-D BOOST_ROOT:PATH="${BOOST_DIR}"',
                   '-D Boost_USE_MULTITHREADED:BOOL=${BOOST_USE_MULTITHREADED}',
-                  '-D DOLFIN_ENABLE_UNIT_TESTS:BOOL=OFF']
+                  '-D DOLFIN_ENABLE_UNIT_TESTS:BOOL=OFF',
+                  '-D DOLFIN_USE_PYTHON3=${USE_PYTHON3}']
 
     # CMake needs to be given all the dependency dirs as prefix paths
     # so that we search the HashDist directories before the system directories.

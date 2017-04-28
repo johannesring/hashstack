@@ -44,6 +44,7 @@ build_stages:
   handler: bash
   bash: |
     export PYVER={{pyver}}
+    export USE_PYTHON3=$(${PYTHON} -c "import sys; print('OFF' if sys.version_info.major == 2 else 'ON')") 
 
 - name: configure ## See dolfin.py for details
   mode: replace

@@ -1,0 +1,41 @@
+extends: [base_package]
+dependencies:
+  build: [scalapack, blas, mpi, lapack, parmetis, scotch]
+
+sources:
+- key: tar.gz:qa7c3kscsgdlgmlhwwq2oaenj4nwl7vt
+  url: http://ftp.mcs.anl.gov/pub/petsc/externalpackages/MUMPS_5.0.1-p1.tar.gz
+
+build_stages:
+- when: platform == 'Darwin'
+  name: configure
+  files: [Makefile.inc.darwin]
+  # FIXME: Add this file ^^
+  after: prologue
+  handler: bash
+  bash: |
+    cp _hashdist/Makefile.inc.darwin Makefile.inc
+
+- when: platform != 'Darwin'
+  name: configure
+  files: [Makefile.inc.linux]
+  after: prologue
+  handler: bash
+  bash: |
+    cp _hashdist/Makefile.inc.linux Makefile.inc
+
+- name: make
+  after: configure
+  handler: bash
+  bash: |
+    make clean
+    make -j ${HASHDIST_CPU_COUNT} alllib
+
+- name: install
+  after: make
+  handler: bash
+  bash: |
+    mkdir -p ${ARTIFACT}/include
+    mkdir -p ${ARTIFACT}/lib
+    cp -f include/*.* ${ARTIFACT}/include/
+    cp -f lib/*.* ${ARTIFACT}/lib/

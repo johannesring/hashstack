@@ -15,8 +15,8 @@ dependencies:
   run: [ply]
 
 sources:
-- key: tar.gz:xmttdvmoy32w3mxtkqkb6srlw3bawz5o
-  url: https://bitbucket.org/fenics-project/dolfin/downloads/dolfin-2016.2.0.tar.gz
+- key: tar.gz:xj4tulkbtfowltso5huvlyddiktdk4lu
+  url: https://bitbucket.org/fenics-project/dolfin/downloads/dolfin-2017.1.0.tar.gz
 
 
 defaults:

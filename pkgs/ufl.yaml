@@ -4,5 +4,5 @@ dependencies:
   run: [numpy, six]
 
 sources:
-- key: tar.gz:xyxbmx6bhudzyxmyzcde5ddxjnukgnx2
-  url: https://bitbucket.org/fenics-project/ufl/downloads/ufl-2016.2.0.tar.gz
+- key: tar.gz:v6d7uehusjta5doz6xecbqbvfhqbpoal
+  url: https://bitbucket.org/fenics-project/ufl/downloads/ufl-2017.1.0.tar.gz

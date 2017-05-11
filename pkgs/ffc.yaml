@@ -4,8 +4,8 @@ dependencies:
   run: [dijitso, fiat, instant, numpy, six, ufl]
 
 sources:
-- key: tar.gz:bf6cqr4air7kpo2h2tkrsvterippwlfz
-  url: https://bitbucket.org/fenics-project/ffc/downloads/ffc-2016.2.0.tar.gz
+- key: tar.gz:ebz4jwhztb4yuoykri3r45gzqshq4uut
+  url: https://bitbucket.org/fenics-project/ffc/downloads/ffc-2017.1.0.tar.gz
 
 when_build_dependency:
 - prepend_path: PATH

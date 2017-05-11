@@ -4,5 +4,5 @@ dependencies:
   run: [mpi4py, numpy, six, subprocess32]
 
 sources:
-- key: tar.gz:dp5avqgupwxhlo66r6v3cfc5hsvc43bi
-  url: https://bitbucket.org/fenics-project/dijitso/downloads/dijitso-2016.2.0.tar.gz
+- key: tar.gz:54rzkjjz2ne7xu4e2qjqfk6jiqj5jbok
+  url: https://bitbucket.org/fenics-project/dijitso/downloads/dijitso-2017.1.0.tar.gz

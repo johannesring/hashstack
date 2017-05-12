@@ -51,6 +51,13 @@ build_stages:
   after: set_python_version
   build_type: {{build_type}}
 
+- name: generate-swig-interface
+  after: prologue
+  before: setup_builddir
+  handler: bash
+  bash: |
+    $PYTHON cmake/scripts/generate-swig-interface.py
+
 - when: platform == 'linux'
   name: fix-rpath
   after: install
